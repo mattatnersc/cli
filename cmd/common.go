@@ -214,7 +214,7 @@ func verifyCert(caCert []byte) (string, error) {
 	block, _ := pem.Decode(caCert)
 
 	if nil == block {
-		return "", errors.New("No cert was found")
+		return "", errors.New("failed to decode CA cert")
 	}
 
 	parsedCert, err := x509.ParseCertificate(block.Bytes)
